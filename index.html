@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>PariRo'yimga💞</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            padding: 5vh 10vw;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            animation: typewriter 4s steps(30, end) 1s forwards;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid white;
+        }
+
+        .poem {
+            margin-top: 2em;
+            font-size: 1.4em;
+            line-height: 1.8em;
+            white-space: pre-wrap;
+            opacity: 0;
+            animation: fadein 8s ease-in 5s forwards;
+        }
+
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .falling-flowers {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .falling-flowers span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('https://pngimg.com/uploads/rose/rose_PNG669.png') no-repeat center;
+            background-size: contain;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="falling-flowers" id="flowers"></div>
+    <div class="container">
+        <h1>PariRo'yimga💞</h1>
+        <div class="poem">
+            Senga bo‘lgan xumorim aldab<br>
+            Suratingga qarab ovundim.<br>
+            Bilsang yurak qilmoqda talab<br>
+            Bugun seni juda sog‘indim.<br><br>
+            Hasratimga dengizlar guvoh<br>
+            Osmondagi yulduzlar guvoh.<br>
+            Sog‘inishim bo‘lsa-da gunoh,<br>
+            Bugun seni juda sog‘indim.<br><br>
+            Ko‘rsam edi gul yuzlaringni<br>
+            Ma'yus kulgan ul ko‘zlaringni.<br>
+            Menga aytgan har so‘zlaringni<br>
+            Bugun seni juda sog‘indim.<br><br>
+            Sochlaringni uchirar shamol<br>
+            Kelarmi deb surarman hayol<br>
+            So‘zim tingla ey sohibjamol<br>
+            Bugun seni juda sog‘indim.
+        </div>
+        <audio autoplay loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script>
+        const flowerCount = 30;
+        const container = document.getElementById("flowers");
+
+        for (let i = 0; i < flowerCount; i++) {
+            const flower = document.createElement("span");
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = 5 + Math.random() * 5 + "s";
+            flower.style.animationDelay = Math.random() * 10 + "s";
+            container.appendChild(flower);
+        }
+    </script>
+</body>
+</html>
